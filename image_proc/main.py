@@ -3,30 +3,46 @@ import os
 
 MAX_WIDTH = 1200
 
-def proccess_image(path):
+def proccess_image(path, script_dir):
 
   try:
     with Image.open(path) as img:
-
+      global MAX_WIDTH
       img.load()
-      img.show()
+      
 
       width, height = img.size
-      print(width, height )
+      #print(width, height )
 
       if width > MAX_WIDTH:
         new_w = MAX_WIDTH
         new_h = int(height * (new_w / width))
         new_img = img.resize((new_w, new_h), Image.LANCZOS)
-      new_img.show()
+        
+      else:
+        
+        new_img = img
+      #save = os.path.join(script_dir, output)
+      out_path = os.path.join(script_dir, 'output')
+      if not os.path.isdir(out_path):
+        os.makedirs(out_path, exist_ok=True)
+      filename = os.path.basename(path)
+      name, ext = os.path.splitext(filename)
+      save_filename = f"{name}_processed{ext}"
+      save_path = os.path.join(out_path, save_filename)
+
+      
+      new_img.save(save_path)
+      
+      
 
   except:
     print('ошибка')
 
 def main():
-  script_dir = os.path.dirname(__file__)
+  script_dir = os.path.dirname(__file__) #путь до скрипта
   images_path = os.path.join(script_dir, 'images')
-
+  
   if not os.path.isdir(images_path):
     print('Такой папки нет')
     return
@@ -37,7 +53,7 @@ def main():
   print(files)
 
   for file in files:
-    proccess_image(file)
-
+    proccess_image(file, script_dir)
+    
 if __name__ == '__main__':
   main()
