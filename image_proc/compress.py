@@ -3,14 +3,14 @@ import os
 
 MAX_WIDTH = 1200
 
-def proccess_image(path, script_dir):
+def proccess_image(path, script_dir=os.path.dirname(__file__)):
 
   try:
     with Image.open(path) as img:
       global MAX_WIDTH
       img.load()
       
-
+      
       width, height = img.size
       #print(width, height )
 
@@ -33,6 +33,7 @@ def proccess_image(path, script_dir):
 
       
       new_img.save(save_path)
+    return script_dir
       
       
 
