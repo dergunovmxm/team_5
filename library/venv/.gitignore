@@ -1,0 +1,58 @@
+
+# Игнорирование файлов операционной системы
+.DS_Store
+Thumbs.db
+
+# Игнорирование настроек IDE
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Игнорирование файлов сборки и временных файлов
+/build/
+/dist/
+/out/
+/target/
+/bin/
+/obj/
+
+# Игнорирование логов и временных файлов
+*.log
+*.tmp
+*.temp
+*.cache
+
+# Игнорирование файлов зависимостей и кэша пакетных менеджеров
+node_modules/
+bower_components/
+.pnp/
+.pnp.js
+.cache/
+.yarn-cache/
+*.lock
+
+# Игнорирование конфиденциальных данных
+.env
+.env.local
+.env.*.local
+
+# Игнорирование файлов конфигурации Docker
+docker-compose.override.yml
+
+# Конкретные примеры для языков и фреймворков (по желанию)
+# Python
+__pycache__/
+*.py[cod]
+
+# Java
+*.class
+*.jar
+*.war
+
+# C++
+*.obj
+*.exe
+
