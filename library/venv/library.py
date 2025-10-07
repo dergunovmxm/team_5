@@ -17,6 +17,7 @@ class Library:
       print(f"{book} у {user.name}")
 
   def rent_book(self, book_title, user):
+    #проверка на доступность выдачи книги
     for book in self.books:
       if book.title == book_title:
         self.books.remove(book)
@@ -25,4 +26,8 @@ class Library:
         print(f"Книга {book_title} выдана {user.name}")
         return
     print('Такой книги нет')
+
+  # def  return_book - вернуть книгу
+  # def  is_borrowed_book - проверить на наличие книги 
+  
 
