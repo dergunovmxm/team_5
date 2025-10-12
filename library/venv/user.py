@@ -11,12 +11,12 @@ class User:
   def show_books(self):
     print(f'Книги у {self.name}')
     if not self.borrowed_books:
-      print('Не взятых книг')
+      print('Нет взятых книг')
     for book in self.borrowed_books:
       print('- ', book)
 
 class Student(User): 
-  max_books = 5
+  max_books = 3
   def __init__(self, name):
     super().__init__(name)
 
